@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akash Raj | Data Analyst</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #0d5a56;
+      --primary-light: #e6f4f1;
+      --accent: #3b82f6;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+      --border-light: #e2e8f0;
+      --shadow: 0 10px 40px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    /* NAV */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+  min-height: 100vh;
+  padding: 0 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("Hero.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.45)
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+
+    .hero h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+   }
+   .hero h1 {
+     text-shadow: 0 10px 40px rgba(0,0,0,0.3);
+   }
+
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 2rem;
+}
+
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(15,118,110,0.3);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* SECTION */
+    section {
+      padding: 6rem 0;
+    }
+
+    section h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      margin-bottom: 4rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+
+    .project-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .project-tech {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-card .btn {
+      margin-top: auto;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .skill-card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ABOUT */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+/* FOOTER */
+footer {
+  background: #0f766e;
+  color: #e0f2f1;
+  padding: 2.5rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  background: #115e59;
+  border-radius: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h3 {
+  color: #ecfeff;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.footer-section p {
+  margin: 0.25rem 0;
+}
+
+.footer-section a {
+  color: #a5f3fc;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.footer-section a:hover {
+  color: #ffffff;
+}
+
+footer .copyright {
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  border-top: 1px solid #0d4f4a;
+  padding-top: 0.75rem;
+  color: #ccfbf1;
+  font-size: 0.85rem;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1.5rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">AKASH RAJ</div>
+      <nav>
+        <a href="#projects"><i class="fas fa-briefcase"></i> Projects</a>
+        <a href="#skills"><i class="fas fa-chart-line"></i> Skills</a>
+        <a href="#about"><i class="fas fa-user"></i> About</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-in-up">
+    <h1>Data Analyst & BI Specialist</h1>
+    <p class="hero-subtitle">I simplify complex data into clean, decision-ready insights using Python • Power BI • Tableau • SQL • Machine Learning</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">
+        <i class="fas fa-eye"></i> View Projects
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <i class="fas fa-download"></i> Download Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="fade-in-up">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-taxi"></i>
+          </div>
+          <h3>NYC Taxi Fare Prediction</h3>
+          <div class="project-tech">
+            <i class="fas fa-code"></i>
+            Python • Random Forest • ML • BI
+          </div>
+          <p>End-to-end analytics pipeline: EDA, anomaly detection, feature engineering, Random Forest fare modeling (R² = 0.97), and interactive Power BI & Tableau dashboards for stakeholder decision-making.</p>
+          <a href="https://shiva91626-sudo.github.io/nyc-taxi-fare-prediction-automatidata-page/" class="btn btn-primary">View Case Study</a>
+        </div>
+
+        <div class="project-card fade-in-up">
+         <div class="project-icon">
+         <i class="fas fa-home"></i>
+        </div>
+         <h3>Residential Real Estate Price Prediction</h3>
+       <div class="project-tech">
+         <i class="fas fa-code"></i>
+         SQL • Python • XGBoost • Regression • Power BI
+      </div>
+      <p>
+    End-to-end real estate price analytics combining advanced regression models
+    with interactive Power BI dashboards to assess pricing accuracy, risk exposure,
+    and investment opportunity across property segments.
+      </p>
+        <a href="https://shiva91626-sudo.github.io/Residential-Real-Estate-Price-Prediction-Page/" class="btn btn-primary">View Case Study</a>
+      </div>
+
+    
+       <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Employee Attrition Analytics</h3>
+          <div class="project-tech">
+            <i class="fas fa-code"></i>
+            Python • Classification • ML • BI
+
+          </div>
+          <p>End-to-end employee attrition analytics using classification models to identify
+high-risk employees, supported by interactive Power BI and Tableau dashboards
+for data-driven HR decision-making.
+</p>
+          <a href="https://shiva91626-sudo.github.io/Hr-Attrition-Analytics-ML-BI-page/" class="btn btn-primary">View Case Study</a>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <div class="project-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>E-commerce Sales Analytics</h3>
+          <div class="project-tech">
+            <i class="fas fa-code"></i>
+            ETL • 1M+ Rows • Power BI • DAX
+          </div>
+          <p>End-to-end e-commerce analytics solution processing 1M+ transactions, delivering executive-ready Power BI dashboards for KPI tracking, sales driver analysis, and revenue optimization across categories, regions, and payment methods.</p>
+          <a href="https://shiva91626-sudo.github.io/ecommerce-analytics-portfolio/" class="btn btn-primary">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background: var(--white);">
+    <div class="container">
+      <h2 class="fade-in-up">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card fade-in-up">
+          <div class="skill-icon"><i class="fab fa-python"></i></div>
+          <h4>Python</h4>
+          <p>Pandas, NumPy, Scikit-learn</p>
+        </div>
+        <div class="skill-card fade-in-up">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <h4>SQL</h4>
+          <p>Advanced querying, optimization</p>
+        </div>
+        <div class="skill-card fade-in-up">
+          <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+          <h4>Power BI</h4>
+          <p>DAX, data modeling, dashboards</p>
+        </div>
+        <div class="skill-card fade-in-up">
+          <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+          <h4>Tableau</h4>
+          <p>Interactive visualizations</p>
+        </div>
+        <div class="skill-card fade-in-up">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h4>Machine Learning</h4>
+          <p>Regression, classification</p>
+        </div>
+        <div class="skill-card fade-in-up">
+          <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+          <h4>ETL Pipelines</h4>
+          <p>Data engineering workflows</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="fade-in-up">About Me</h2>
+      <div class="about-content fade-in-up">
+        <p>Transitioning from healthcare operations to data analytics, I specialize in turning raw data into scalable business intelligence solutions. My approach combines rigorous statistical analysis with compelling visualizations that drive executive decisions.</p>
+        <br>
+        <p>Currently, I design and deploy production-grade analytics systems on million-row datasets, working across Python, SQL, Power BI, Tableau, and machine learning to support predictive modeling, performance tracking, and executive decision-making.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+  <div class="footer-content">
+    <div class="footer-section">
+  <h3><i class="fas fa-envelope"></i> Get In Touch</h3>
+  <a href="mailto:akashraj.dev@outlook.com">akashraj.dev@outlook.com</a>
+  <a href="https://wa.me/918789388911" target="_blank">
+    <i class="fab fa-whatsapp"></i> WhatsApp: +91 87893 88911
+  </a>
+</div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+      <p>Govindpuram, Ghaziabad, India </p>
+    </div>
+    <div class="footer-section">
+      <h3><i class="fab fa-linkedin"></i> Connect</h3>
+      <a href="https://linkedin.com">LinkedIn</a>
+      <a href="https://github.com/shiva91626-sudo">GitHub</a>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 Akash Raj · Data Analyst Portfolio
+  </div>
+</footer>
+
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255,255,255,0.98)';
+      } else {
+        header.style.background = 'rgba(255,255,255,0.95)';
+      }
+    });
+
+    // Fade in animations on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = '0.2s';
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
